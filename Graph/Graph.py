@@ -14,15 +14,15 @@ class Graph:
         self.adjacency_list[node1].remove(node2)
         self.adjacency_list[node2].remove(node1)
         
-    def remove_node(self, removeNode):
+    def remove_node(self, node):
         
-        if removeNode in self.adjacency_list:
+        if node in self.adjacency_list:
             
-            for node, neighbour in self.adjacency_list.items():
-                if removeNode in self.adjacency_list[node]:
-                    self.adjacency_list[node].remove(removeNode)
+            for  neighbour in self.adjacency_list.items():
+                if node in self.adjacency_list[neighbour]:
+                    self.adjacency_list[neighbour].remove(node)
                     
-            self.adjacency_list.pop(removeNode)
+            self.adjacency_list.pop(node)
             
     def display(self):
         for node, neighbour in self.adjacency_list.items():
